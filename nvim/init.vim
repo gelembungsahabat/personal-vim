@@ -11,7 +11,6 @@ Plug 'ryanoasis/vim-devicons'
 Plug 'leafgarland/typescript-vim'
 Plug 'peitalin/vim-jsx-typescript'
 Plug 'f-person/git-blame.nvim'
-Plug 'edkolev/tmuxline.vim'
 Plug 'cakebaker/scss-syntax.vim'
 Plug 'edkolev/tmuxline.vim'
 Plug 'michaeljsmith/vim-indent-object'
@@ -40,10 +39,6 @@ endif
 
 " statusline
 let g:airline_theme='minimalist'
-let g:airline_left_sep = '»'
-let g:airline_left_sep = '▶'
-let g:airline_right_sep = '«'
-let g:airline_right_sep = '◀'
 let g:airline_symbols.crypt = '🔒'
 let g:airline_symbols.linenr = '☰'
 let g:airline_symbols.linenr = '␊'
@@ -59,13 +54,16 @@ let g:airline_symbols.spell = 'Ꞩ'
 let g:airline_symbols.notexists = 'Ɇ'
 let g:airline_symbols.whitespace = 'Ξ'
 let g:airline_powerline_fonts = 1
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#left_sep = ' '
+let g:airline#extensions#tabline#left_alt_sep = '|'
+let g:airline#extensions#tabline#formatter = 'default'
 
 if (has("termguicolors"))
  set termguicolors
 endif
 syntax enable
 colorscheme dracula
-
 
 let g:NERDTreeShowHidden = 1
 let g:NERDTreeMinimalUI = 1
@@ -105,12 +103,13 @@ nnoremap <A-h> <C-w>h
 nnoremap <A-j> <C-w>j
 nnoremap <A-k> <C-w>k
 nnoremap <A-l> <C-w>l
-
 nnoremap <C-p> :FZF<CR>
+
+filetype plugin indent on    " required
+
 let g:fzf_action = {
   \ 'ctrl-t': 'tab split',
   \ 'ctrl-s': 'split',
-  \ 'ctrl-v': 'vsplit'
+  \ 'ctrl-v': 'vsplit',
   \}
 
-filetype plugin indent on    " required
