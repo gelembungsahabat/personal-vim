@@ -36,6 +36,7 @@ let g:coc_global_extensions = ['coc-emmet', 'coc-css', 'coc-html', 'coc-json', '
 if !exists('g:airline_symbols')
    let g:airline_symbols = {}
 endif
+let g:ackprg = 'ag --nogroup --nocolor --column'
 
 " statusline
 let g:airline_theme='minimalist'
